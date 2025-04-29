@@ -58,7 +58,6 @@ export default function App() {
   const [testActive, setTestActive] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
   const [wpm, setWpm] = useState(0);
-  const [accuracy, setAccuracy] = useState(100);
   const [showResults, setShowResults] = useState(false);
   const [floatingBubbles, setFloatingBubbles] = useState([]);
   
@@ -98,7 +97,7 @@ export default function App() {
     return () => clearInterval(timer);
   }, [testActive, timeLeft]);
 
-  // Calculate WPM and accuracy when test ends
+  // Calculate WPM 
   const calculateResults = () => {
     // Calculate WPM (Words Per Minute)
     const words = text.trim().split(/\s+/).length;
@@ -317,7 +316,7 @@ export default function App() {
             <div className="flex flex-col items-center">
               {!testActive && !showResults && (
                 <div className="text-center mb-6">
-                  <p className={`mb-4 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>Test your typing speed and accuracy! Click the button below to start.</p>
+                  <p className={`mb-4 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>Test your typing speed! Click the button below to start.</p>
                   <button 
                     onClick={startTest}
                     className={`px-6 py-3 rounded-full font-bold transition-all ${darkMode ? "bg-purple-600 hover:bg-purple-700 text-white" : "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white"}`}
